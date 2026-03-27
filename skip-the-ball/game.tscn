@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://b0yei26h8a74c"]
+
+[ext_resource type="Texture2D" uid="uid://dhamwwtc4s16t" path="res://sprites/ball.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://gtdd8t800if8" path="res://player.gd" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://d2j4xno4c0l83" path="res://game.gd" id="1_vef74"]
+[ext_resource type="Script" uid="uid://invrlmtsrndg" path="res://floor.gd" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://cmbouytcvv1b7" path="res://sprites/floor.png" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://d3l8etpjbpt31" path="res://sprites/star.png" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://bcdpuxddi6kvo" path="res://star.gd" id="5_ryrav"]
+[ext_resource type="Texture2D" uid="uid://dcpw2o7fj5kv" path="res://sprites/bomb.png" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://c32dv4adyhdg2" path="res://bomba.gd" id="7_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://blpena351cnxu" path="res://ui/game_over_screen.png" id="10_hve3p"]
+[ext_resource type="Texture2D" uid="uid://dpuu2krsly2xk" path="res://ui/restart_button.png" id="11_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://drcvv4mq8y5ir" path="res://sprites/light.png" id="12_iotsf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jktm"]
+radius = 33.01515
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
+size = Vector2(799, 89)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vef74"]
+a = Vector2(-166, -555)
+b = Vector2(-165, 7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hve3p"]
+a = Vector2(632.1551, -1019.41754)
+b = Vector2(625.7858, -116.50488)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5wjh"]
+radius = 26.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotsf"]
+texture = ExtResource("11_mfdv2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc2xo"]
+texture = ExtResource("11_mfdv2")
+
+[node name="game" type="Node2D" unique_id=1525021159]
+script = ExtResource("1_vef74")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=2047190986]
+position = Vector2(209, 316)
+script = ExtResource("1_feb5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1914647406]
+position = Vector2(-1.0000305, 2)
+scale = Vector2(0.09700521, 0.1)
+texture = ExtResource("1_80nbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=2117640755]
+shape = SubResource("CircleShape2D_7jktm")
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=311142419]
+position = Vector2(401, 606)
+script = ExtResource("3_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor" unique_id=707188213]
+position = Vector2(4, 25)
+scale = Vector2(0.62801045, 0.618)
+texture = ExtResource("3_fc0e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=599376599]
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor" unique_id=1049371333]
+position = Vector2(-236, -52)
+shape = SubResource("SegmentShape2D_vef74")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="floor" unique_id=1362759078]
+position = Vector2(4, 25)
+scale = Vector2(0.62801045, 0.618)
+shape = SubResource("SegmentShape2D_hve3p")
+
+[node name="star" type="Area2D" parent="." unique_id=303469376 groups=["itens"]]
+z_index = 1
+position = Vector2(375, 298)
+script = ExtResource("5_ryrav")
+
+[node name="Sprite2D" type="Sprite2D" parent="star" unique_id=1175031357]
+position = Vector2(-7.6293945e-06, 1.000001)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_7jktm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="star" unique_id=72063720]
+shape = SubResource("CircleShape2D_ryrav")
+
+[node name="bomba" type="Area2D" parent="." unique_id=1101675908 groups=["itens"]]
+position = Vector2(535, 328)
+script = ExtResource("7_j5wjh")
+
+[node name="Sprite2D" type="Sprite2D" parent="bomba" unique_id=370413084]
+position = Vector2(1.000061, -7.9999695)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_eow3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomba" unique_id=505906974]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_j5wjh")
+
+[node name="score" type="Label" parent="." unique_id=388954319]
+offset_left = 285.0
+offset_top = 37.0
+offset_right = 511.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 60
+text = "Score: 0"
+
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=1456127153]
+visible = false
+
+[node name="Control" type="Control" parent="GameOverUI" unique_id=1701982415]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 59.0
+offset_bottom = 49.0
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverUI/Control" unique_id=2103295525]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="TextureRect" type="TextureRect" parent="GameOverUI/Control/CenterContainer" unique_id=2108922467]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+texture = ExtResource("10_hve3p")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/Control/CenterContainer/TextureRect" unique_id=830257553]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 201.0
+offset_right = 524.0
+offset_bottom = 438.0
+alignment = 1
+
+[node name="coisoFinal" type="Label" parent="GameOverUI/Control/CenterContainer/TextureRect/VBoxContainer" unique_id=1397989517]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Total: 0"
+
+[node name="Button" type="Button" parent="GameOverUI/Control/CenterContainer/TextureRect/VBoxContainer" unique_id=1762733382]
+process_mode = 3
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_iotsf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lc2xo")
+
+[node name="Light" type="Sprite2D" parent="GameOverUI/Control/CenterContainer/TextureRect/VBoxContainer" unique_id=69106799]
+position = Vector2(-929, 513)
+texture = ExtResource("12_iotsf")
+
+[connection signal="body_entered" from="star" to="star" method="_on_body_entered"]
+[connection signal="body_entered" from="bomba" to="bomba" method="_on_body_entered"]
+[connection signal="pressed" from="GameOverUI/Control/CenterContainer/TextureRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
