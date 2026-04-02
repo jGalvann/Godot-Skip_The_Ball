@@ -9,9 +9,18 @@
 [ext_resource type="Script" uid="uid://bcdpuxddi6kvo" path="res://star.gd" id="5_ryrav"]
 [ext_resource type="Texture2D" uid="uid://dcpw2o7fj5kv" path="res://sprites/bomb.png" id="7_eow3j"]
 [ext_resource type="Script" uid="uid://c32dv4adyhdg2" path="res://bomba.gd" id="7_j5wjh"]
+[ext_resource type="Script" uid="uid://bpb1g35sqvjo2" path="res://ice.gd" id="10_215e1"]
 [ext_resource type="Texture2D" uid="uid://blpena351cnxu" path="res://ui/game_over_screen.png" id="10_hve3p"]
+[ext_resource type="Texture2D" uid="uid://d21no0hn0x84m" path="res://sprites/ice.png" id="11_7sc4i"]
 [ext_resource type="Texture2D" uid="uid://dpuu2krsly2xk" path="res://ui/restart_button.png" id="11_mfdv2"]
+[ext_resource type="Script" uid="uid://brqjsf2iqqhhc" path="res://light.gd" id="12_7sc4i"]
 [ext_resource type="Texture2D" uid="uid://drcvv4mq8y5ir" path="res://sprites/light.png" id="12_iotsf"]
+[ext_resource type="Script" uid="uid://dj7xs0arunlnr" path="res://amber.gd" id="14_e8heu"]
+[ext_resource type="Texture2D" uid="uid://cqkt2inftv2vk" path="res://sprites/ember.png" id="15_rvswv"]
+[ext_resource type="Script" uid="uid://cqonpja1l3pon" path="res://power.gd" id="16_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://chtfhffw0minq" path="res://sprites/power.png" id="17_x5p1p"]
+[ext_resource type="Script" uid="uid://253ufvab8hsn" path="res://heavy.gd" id="18_qhcbd"]
+[ext_resource type="Texture2D" uid="uid://cfqcsyyisv0do" path="res://sprites/heavy.png" id="19_f1jbl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7jktm"]
 radius = 33.01515
@@ -31,7 +40,22 @@ b = Vector2(625.7858, -116.50488)
 radius = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5wjh"]
-radius = 26.0
+radius = 19.235384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80cx4"]
+radius = 50.941914
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
+size = Vector2(124.52187, 51.617043)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boyg6"]
+radius = 48.6621
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaj68"]
+radius = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2p71"]
+radius = 61.03278
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotsf"]
 texture = ExtResource("11_mfdv2")
@@ -43,7 +67,7 @@ texture = ExtResource("11_mfdv2")
 script = ExtResource("1_vef74")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=2047190986]
-position = Vector2(209, 316)
+position = Vector2(410, 464)
 script = ExtResource("1_feb5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1914647406]
@@ -75,37 +99,99 @@ position = Vector2(4, 25)
 scale = Vector2(0.62801045, 0.618)
 shape = SubResource("SegmentShape2D_hve3p")
 
-[node name="star" type="Area2D" parent="." unique_id=303469376 groups=["itens"]]
+[node name="star" type="Area2D" parent="." unique_id=303469376]
 z_index = 1
-position = Vector2(375, 298)
+position = Vector2(657, 414)
 script = ExtResource("5_ryrav")
 
 [node name="Sprite2D" type="Sprite2D" parent="star" unique_id=1175031357]
 position = Vector2(-7.6293945e-06, 1.000001)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("5_7jktm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="star" unique_id=72063720]
 shape = SubResource("CircleShape2D_ryrav")
 
 [node name="bomba" type="Area2D" parent="." unique_id=1101675908 groups=["itens"]]
-position = Vector2(535, 328)
+position = Vector2(82, 183)
 script = ExtResource("7_j5wjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="bomba" unique_id=370413084]
-position = Vector2(1.000061, -7.9999695)
-scale = Vector2(0.1, 0.1)
+position = Vector2(2.861023e-06, -1.0000019)
+scale = Vector2(0.07, 0.067)
 texture = ExtResource("7_eow3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bomba" unique_id=505906974]
-position = Vector2(-1, 1)
+position = Vector2(-1, 4)
 shape = SubResource("CircleShape2D_j5wjh")
 
+[node name="ice" type="Area2D" parent="." unique_id=1221697017 groups=["itens"]]
+position = Vector2(528, 309)
+script = ExtResource("10_215e1")
+
+[node name="Sprite2D" type="Sprite2D" parent="ice" unique_id=43502181]
+position = Vector2(0.20000458, 1.199997)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("11_7sc4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ice" unique_id=805494206]
+position = Vector2(0.2000122, -1.800003)
+shape = SubResource("CircleShape2D_80cx4")
+
+[node name="light" type="Area2D" parent="." unique_id=536817244 groups=["itens"]]
+position = Vector2(358, 245)
+script = ExtResource("12_7sc4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="light" unique_id=231692821]
+position = Vector2(-8.799957, 5.2000275)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("12_iotsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="light" unique_id=57629691]
+position = Vector2(-8.871689, 4.149719)
+rotation = 2.3265238
+shape = SubResource("RectangleShape2D_80cx4")
+
+[node name="amber" type="Area2D" parent="." unique_id=433537507]
+position = Vector2(589, 154)
+script = ExtResource("14_e8heu")
+
+[node name="Sprite2D" type="Sprite2D" parent="amber" unique_id=1518489700]
+position = Vector2(7.0000153, 10.999985)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("15_rvswv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="amber" unique_id=1708880151]
+position = Vector2(8, 14)
+shape = SubResource("CircleShape2D_boyg6")
+
+[node name="power" type="Area2D" parent="." unique_id=1924959776 groups=["itens"]]
+position = Vector2(695, 71)
+script = ExtResource("16_hb5m1")
+
+[node name="Sprite2D" type="Sprite2D" parent="power" unique_id=899154534]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_x5p1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="power" unique_id=1178468101]
+shape = SubResource("CircleShape2D_vaj68")
+
+[node name="heavy" type="Area2D" parent="." unique_id=789515540 groups=["itens"]]
+position = Vector2(184, 333)
+script = ExtResource("18_qhcbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="heavy" unique_id=1976325306]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("19_f1jbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heavy" unique_id=1064757026]
+shape = SubResource("CircleShape2D_i2p71")
+
 [node name="score" type="Label" parent="." unique_id=388954319]
-offset_left = 285.0
-offset_top = 37.0
-offset_right = 511.0
-offset_bottom = 120.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 233.0
+offset_bottom = 88.0
 theme_override_font_sizes/font_size = 60
 text = "Score: 0"
 
@@ -153,6 +239,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_lc2xo")
 position = Vector2(-929, 513)
 texture = ExtResource("12_iotsf")
 
+[node name="Timer" type="Timer" parent="." unique_id=1601425648]
+wait_time = 10.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=2016966864]
+wait_time = 3.0
+
 [connection signal="body_entered" from="star" to="star" method="_on_body_entered"]
 [connection signal="body_entered" from="bomba" to="bomba" method="_on_body_entered"]
+[connection signal="body_entered" from="ice" to="ice" method="_on_body_entered"]
+[connection signal="body_entered" from="light" to="light" method="_on_body_entered"]
+[connection signal="body_entered" from="amber" to="amber" method="_on_body_entered"]
+[connection signal="body_entered" from="power" to="power" method="_on_body_entered"]
+[connection signal="body_entered" from="heavy" to="heavy" method="_on_body_entered"]
 [connection signal="pressed" from="GameOverUI/Control/CenterContainer/TextureRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

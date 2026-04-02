@@ -4,7 +4,6 @@ var gravidade = 900
 var pancada = -900
 var movimento = 300
 
-
 func _physics_process(delta: float):
 	velocity.y += gravidade * delta 
 	
