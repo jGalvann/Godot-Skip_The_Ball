@@ -8,10 +8,21 @@ extends Node2D
 
 var points = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	randomize()
 	$Timer.start()
 	
+	var todos_itens_tela = get_tree().get_nodes_in_group("itens")
+	for item in todos_itens_tela:
+		if item.name.begins_with("bomba"):
+				item.reposicionar()
+				continue
+		
+		if item.has_method("tempo_de_vida"):
+				item.tempo_de_vida()
+		
+
 
 func game_over():
 	print("Entrou na func Game Over")
@@ -36,7 +47,7 @@ func ice_slow():
 		player.movimento = 50
 
 func light_speed():
-	player.movimento += 50
+	player.movimento += 100
 
 func desativar_itens_temporario():
 	var todos_itens = get_tree().get_nodes_in_group("itens")

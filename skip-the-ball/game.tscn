@@ -29,7 +29,7 @@ radius = 33.01515
 size = Vector2(799, 89)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vef74"]
-a = Vector2(-166, -555)
+a = Vector2(-166, -550)
 b = Vector2(-165, 7)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hve3p"]
@@ -43,19 +43,19 @@ radius = 19.0
 radius = 19.235384
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80cx4"]
-radius = 50.941914
+radius = 30.016663
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
-size = Vector2(124.52187, 51.617043)
+size = Vector2(77.01973, 29.685404)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boyg6"]
-radius = 48.6621
+radius = 30.149628
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vaj68"]
-radius = 54.0
+radius = 23.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2p71"]
-radius = 61.03278
+radius = 33.06055
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotsf"]
 texture = ExtResource("11_mfdv2")
@@ -122,7 +122,7 @@ scale = Vector2(0.07, 0.067)
 texture = ExtResource("7_eow3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bomba" unique_id=505906974]
-position = Vector2(-1, 4)
+position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_j5wjh")
 
 [node name="ice" type="Area2D" parent="." unique_id=1221697017 groups=["itens"]]
@@ -135,7 +135,7 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("11_7sc4i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ice" unique_id=805494206]
-position = Vector2(0.2000122, -1.800003)
+position = Vector2(0, -1.5258789e-05)
 shape = SubResource("CircleShape2D_80cx4")
 
 [node name="light" type="Area2D" parent="." unique_id=536817244 groups=["itens"]]
@@ -148,11 +148,11 @@ scale = Vector2(0.06, 0.06)
 texture = ExtResource("12_iotsf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="light" unique_id=57629691]
-position = Vector2(-8.871689, 4.149719)
+position = Vector2(-8.22168, 7.2046204)
 rotation = 2.3265238
 shape = SubResource("RectangleShape2D_80cx4")
 
-[node name="amber" type="Area2D" parent="." unique_id=433537507]
+[node name="amber" type="Area2D" parent="." unique_id=433537507 groups=["itens"]]
 position = Vector2(589, 154)
 script = ExtResource("14_e8heu")
 
@@ -162,7 +162,7 @@ scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_rvswv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="amber" unique_id=1708880151]
-position = Vector2(8, 14)
+position = Vector2(7, 13)
 shape = SubResource("CircleShape2D_boyg6")
 
 [node name="power" type="Area2D" parent="." unique_id=1924959776 groups=["itens"]]
