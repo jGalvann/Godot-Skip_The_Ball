@@ -11,7 +11,7 @@ extends Node2D
 
 # -- var de estado 
 var points = 0
-
+var valor_do_ponto = 1
 # ciclo de vida 
 func _ready():
 	
@@ -39,7 +39,7 @@ func game_over(): # cabo o jogo
 	
 func add_points(): # adiciona pontos ao score
 	print("Graxa veia, pegou a estrela")
-	points +=1
+	points += valor_do_ponto
 	score_label.text = "Score: " +str(points)
 
 
@@ -73,7 +73,13 @@ func desativar_itens_temporario():
 		print("apareceu")
 
 func pontos_dobrados():
-	points += 1
+	valor_do_ponto = 2
+	print("Bonus ativo")
+	
+	await get_tree().create_timer(5.0).timeout
+	
+	valor_do_ponto = 1 
+	print("cabo o bonus otário")
 
 func _on_timer_timeout(): # escala a dificuldade conforme o tempo passa 
 	player.movimento += 100
