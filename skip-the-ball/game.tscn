@@ -36,26 +36,11 @@ b = Vector2(-165, 7)
 a = Vector2(632.1551, -1019.41754)
 b = Vector2(625.7858, -116.50488)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5wjh"]
 radius = 19.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j5wjh"]
-radius = 19.235384
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_80cx4"]
-radius = 30.016663
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
-size = Vector2(77.01973, 29.685404)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_boyg6"]
-radius = 30.149628
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vaj68"]
-radius = 23.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i2p71"]
-radius = 33.06055
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb5m1"]
+size = Vector2(39, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotsf"]
 texture = ExtResource("11_mfdv2")
@@ -105,12 +90,12 @@ position = Vector2(657, 414)
 script = ExtResource("5_ryrav")
 
 [node name="Sprite2D" type="Sprite2D" parent="star" unique_id=1175031357]
-position = Vector2(-7.6293945e-06, 1.000001)
+position = Vector2(-7.6293945e-06, 9.536743e-07)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("5_7jktm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="star" unique_id=72063720]
-shape = SubResource("CircleShape2D_ryrav")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="star" unique_id=1103592593]
+polygon = PackedVector2Array(11, 13, 0, 10, -11, 13, -11, 3, -17, -6, -6, -8, 0, -17, 6, -8, 17, -6, 10, 3)
 
 [node name="bomba" type="Area2D" parent="." unique_id=1101675908 groups=["itens"]]
 position = Vector2(82, 183)
@@ -130,40 +115,38 @@ position = Vector2(528, 309)
 script = ExtResource("10_215e1")
 
 [node name="Sprite2D" type="Sprite2D" parent="ice" unique_id=43502181]
-position = Vector2(0.20000458, 1.199997)
+position = Vector2(-7.6293945e-06, -1.5258789e-05)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("11_7sc4i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ice" unique_id=805494206]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ice" unique_id=427299897]
 position = Vector2(0, -1.5258789e-05)
-shape = SubResource("CircleShape2D_80cx4")
+polygon = PackedVector2Array(30, 16, 1, 26, -33, 17, 1, -29)
 
 [node name="light" type="Area2D" parent="." unique_id=536817244 groups=["itens"]]
 position = Vector2(358, 245)
 script = ExtResource("12_7sc4i")
 
 [node name="Sprite2D" type="Sprite2D" parent="light" unique_id=231692821]
-position = Vector2(-8.799957, 5.2000275)
+position = Vector2(-9.536743e-07, 4.7683716e-07)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("12_iotsf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="light" unique_id=57629691]
-position = Vector2(-8.22168, 7.2046204)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="light" unique_id=688174828]
 rotation = 2.3265238
-shape = SubResource("RectangleShape2D_80cx4")
+polygon = PackedVector2Array(36.71141, 2.5043945, 36.109512, -1.0505981, 25.486603, -0.65844727, 21.455597, -7.8522644, -16.58548, -13.2258, -37.523087, 1.0085449, -16.528992, 8.705811, 18.083008, 10.440521, 24.549057, 7.095337, 25.360748, 3.5823364)
 
 [node name="amber" type="Area2D" parent="." unique_id=433537507 groups=["itens"]]
 position = Vector2(589, 154)
 script = ExtResource("14_e8heu")
 
 [node name="Sprite2D" type="Sprite2D" parent="amber" unique_id=1518489700]
-position = Vector2(7.0000153, 10.999985)
+position = Vector2(1.6093254e-05, 8.34465e-07)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_rvswv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="amber" unique_id=1708880151]
-position = Vector2(7, 13)
-shape = SubResource("CircleShape2D_boyg6")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="amber" unique_id=1179419892]
+polygon = PackedVector2Array(27, 14, 1, 23, -28, 12, 2, -28)
 
 [node name="power" type="Area2D" parent="." unique_id=1924959776 groups=["itens"]]
 position = Vector2(695, 71)
@@ -174,7 +157,8 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("17_x5p1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="power" unique_id=1178468101]
-shape = SubResource("CircleShape2D_vaj68")
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_hb5m1")
 
 [node name="heavy" type="Area2D" parent="." unique_id=789515540 groups=["itens"]]
 position = Vector2(184, 333)
@@ -184,8 +168,8 @@ script = ExtResource("18_qhcbd")
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("19_f1jbl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="heavy" unique_id=1064757026]
-shape = SubResource("CircleShape2D_i2p71")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="heavy" unique_id=135592720]
+polygon = PackedVector2Array(29, 10, -3, 25, -31, 14, -23, 7, -12, 3, -12, -1, -31, -8, -14, -13, -15, -16, 21, -23, 30, -21, 30, -19, 13, -3)
 
 [node name="score" type="Label" parent="." unique_id=388954319]
 offset_left = 7.0

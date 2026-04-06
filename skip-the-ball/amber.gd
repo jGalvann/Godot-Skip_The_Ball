@@ -1,4 +1,4 @@
-extends "res://itemBase.gd"
+extends "res://itemBase.gd" # recebe o itemBase.gd pa deixar o código mais enxuto e concentrado 
 
 func _on_body_entered(body: Node2D):
 	if body.name == "player":
